@@ -1,13 +1,16 @@
 import { AppBar, Toolbar, Typography, Menu, MenuItem, TextField, FormControl, Select, InputLabel } from '@mui/material';
 import Box from '@mui/material/Box';
 import StarIcon from "@mui/icons-material/Star";
+import { useTheme } from '@mui/material/styles';
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
-
-
 const Home = () => {
+
+    // Access Theme
+    const theme = useTheme();
+
     return (
         <>
             {/* Image Section */}
@@ -79,21 +82,21 @@ const Home = () => {
                     >
                         <Button
                             variant="contained"
-                            bgcolor="#06BBCC"
-                            sx={{ px: 4, py: 1.5, bgcolor: "#06BBCC" }}
+                            bgcolor="`${theme.pallete.main}`"
+                            sx={{ px: 4, py: 1.5, bgcolor: "`${theme.pallete.main}`" }}
                         >
                             Get Free Eligibility Check
                         </Button>
 
                         <Button
                             variant="contained"
-                            sx={{ px: 4, py: 1.5, bgcolor: "#06BBCC" }}
+                            sx={{ px: 4, py: 1.5, bgcolor: theme.pallete.main }}
                         >
                             WhatsApp Now
                         </Button>
                     </Stack>
                 </Box>
-            </Box>
+            </Box >
             <Box
                 sx={{
                     display: "flex",
@@ -107,7 +110,7 @@ const Home = () => {
                     mx: "auto",
                     mt: 1.2,
                     fontSize: 20,
-                    bgcolor: "#06BBCC"
+                    bgcolor: theme.pallete.main
                 }}
             >
                 Trust Strip:
@@ -133,11 +136,11 @@ const Home = () => {
                     display: "flex",
                 }}>
                 <Box sx={{
-                    
+
                     height: { xs: "400px", md: "600px" },
                     height: "auto",
                     width: "auto",
-                    component:"img",
+                    component: "img",
                     src: `url('./Group17.png')`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",

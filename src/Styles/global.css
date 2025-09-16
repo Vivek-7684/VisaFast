@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital@0;1&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -10,9 +12,9 @@ h3,
 h4,
 h5,
 h6 {
-    font-style: 'Charis SIL';
+    font-family: 'Charis SIL';
 }
 
 p{
-    font-style:'figtree';
+    font-family: 'Figtree, sans-serif';
 }
