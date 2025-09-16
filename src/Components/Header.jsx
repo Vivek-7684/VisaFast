@@ -2,7 +2,8 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { AppBar, Toolbar, Typography, Menu, MenuItem } from '@mui/material';
+import { AppBar, Toolbar, Typography, Menu, MenuItem, IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 
@@ -186,8 +187,18 @@ const Header = () => {
                             </MenuItem>
                         </Menu>
                     </Box>
+                    <IconButton sx={{
+                        display: { xs: 'block', md: 'none' },
+                        position: 'absolute',
+                        top: 0,
+                        right: 20,
+                        pt: 3
+                    }}
+                    >
+                        <MenuIcon fontSize="large" />
+                    </IconButton>
                 </Toolbar>
-            </AppBar>
+            </AppBar >
         </>
     );
 };
