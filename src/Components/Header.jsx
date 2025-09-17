@@ -2,26 +2,35 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { AppBar, Toolbar, Typography, Menu, MenuItem, IconButton } from '@mui/material';
+import { AppBar, Toolbar, Typography, Menu, MenuItem, IconButton, Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@mui/material/styles';
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
+import { menus } from '../Static/Menu';
+
+// Reducer for menu state
+
+const initialState = { anchorEl: null, menuKey: "" };// set menu empty
+
+function submenuSet(state, action) {   // open and close submenu  
+    switch (action.type) {
+        case "OPEN_MENU":
+            return { anchorEl: action.anchorEl, menuKey: action.menuKey };
+        case "CLOSE_MENU":
+            return { anchorEl: null, menuKey: "" };
+        default:
+            return state;// fallback
+    }
+}
 
 const Header = () => {
     const theme = useTheme();
 
-    const [anchorElVisa, setAnchorElVisa] = useState(null);
-    const [anchorElPricing, setAnchorElPricing] = useState(null);
-    const [anchorElLeads, setAnchorElLeads] = useState(null);
-    const [activePage, setActivePage] = useState("Home");
+    const [activePage, setActivePage] = useState("Home"); // check selected menu
 
-    const handleOpenVisa = (event) => setAnchorElVisa(event.currentTarget);
-    const handleOpenPricing = (event) => setAnchorElPricing(event.currentTarget);
-    const handleOpenLeads = (event) => setAnchorElLeads(event.currentTarget);
+    const [subMenu, dispatch] = useReducer(submenuSet, initialState); // state track for menu and sub menu
 
-    const handleCloseVisa = () => setAnchorElVisa(null);
-    const handleClosePricing = () => setAnchorElPricing(null);
-    const handleCloseLeads = () => setAnchorElLeads(null);
+    const [mobileOpen, setMobileOpen] = useState(false); // check menu open or not 
 
     return (
         <>
@@ -72,121 +81,48 @@ const Header = () => {
                         sx={{ position: "absolute", top: 0, left: 0, p: 1 }}
                     />
 
-                    {/* Menu Buttons */}
-                    <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 9, ml: 25, pr: 15, fontFamily: theme.typography.p.fontFamily }}>
-                        {/* Home */}
-                        <Button
-                            sx={{ color: activePage === "Home" ? "#50C878" : "black", textTransform: "none" }}
-                            onClick={() => setActivePage("Home")}
-                        >
-                            <Typography component="p" sx={{ fontWeight: 600, fontSize: "1.2rem", textTransform: "none" }}>
-                                Home
-                            </Typography>
-                        </Button>
+                    {/* Desktop Menu */}
+                    <Box sx={{ display: { xs: "none", md: "flex" }, gap: 9, ml: 25 }}>
+                        {/* set menu and sub menu */}
+                        {menus.map(menu => (
+                            <Box key={menu.key}>
+                                <Button
+                                    // change color if menu button if menu or submenu selected
+                                    sx={{
+                                        color: activePage === menu.key || menu.subMenu?.some(sm => sm.key === activePage) ? "#50C878" : "black",
+                                        textTransform: "none"
+                                    }}
+                                    // if submenu exist then open else set menu 
+                                    onClick={menu.subMenu ? (e) => dispatch({ type: "OPEN_MENU", anchorEl: e.currentTarget, menuKey: menu.key }) : () => setActivePage(menu.key)}
+                                >
+                                    <Typography sx={{ fontWeight: 600, fontSize: "1.2rem", textTransform: "none" }}>
+                                        {menu.label}
+                                    </Typography>
+                                </Button>
 
-                        {/* About Us */}
-                        <Button
-                            sx={{ color: activePage === "About" ? "#50C878" : "black", textTransform: "none" }}
-                            onClick={() => setActivePage("About")}
-                        >
-                            <Typography component="p" sx={{ fontWeight: 600, fontSize: "1.2rem", textTransform: "none" }}>
-                                About Us
-                            </Typography>
-                        </Button>
-
-                        {/* Visa */}
-                        <Button
-                            sx={{ color: anchorElVisa || activePage === "Student Visa" || activePage === "Business Visa" ? "#50C878" : "black", textTransform: "none" }}
-                            onClick={handleOpenVisa}
-                        >
-                            <Typography component="p" sx={{ fontWeight: 600, fontSize: "1.2rem", textTransform: "none" }}>
-                                Visa
-                            </Typography>
-                        </Button>
-                        <Menu component="p" anchorEl={anchorElVisa} open={Boolean(anchorElVisa)} onClose={handleCloseVisa}>
-                            <MenuItem sx={{
-                                color: activePage === "Student Visa" ? "#50C878" : "black", fontWeight: 600,
-                                fontSize: "1.2rem", textTransform: "none"
-                            }}
-                                onClick={() => { setActivePage("Student Visa"); handleCloseVisa(); }}>
-                                Student Visas
-                            </MenuItem>
-                            <MenuItem sx={{
-                                color: activePage === "Business Visa" ? "#50C878" : "black", fontWeight: 600,
-                                fontSize: "1.2rem", textTransform: "none"
-                            }}
-                                onClick={() => { setActivePage("Business Visa"); handleCloseVisa(); }}>
-                                Business Visas
-                            </MenuItem>
-                        </Menu>
-
-                        {/* Pricing */}
-                        <Button
-                            sx={{
-                                color: anchorElPricing || activePage === "Student Pricing" || activePage === "Business Pricing" ? "#50C878" : "black",
-                                fontWeight: 600, fontSize: "1.2rem", textTransform: "none"
-                            }}
-                            onClick={handleOpenPricing}
-                        >
-                            <Typography component="p" sx={{ fontWeight: 600, fontSize: "1.2rem", textTransform: "none" }}>
-                                Pricing
-                            </Typography>
-                        </Button>
-                        <Menu
-                            anchorEl={anchorElPricing}
-                            open={Boolean(anchorElPricing)}
-                            onClose={handleClosePricing}
-                        >
-                            <MenuItem sx={{ color: activePage === "Student Pricing" ? "#50C878" : "black", textTransform: "none", fontWeight: 600, fontSize: "1.2rem" }}
-                                onClick={() => { setActivePage("Student Pricing"); handleClosePricing(); }}>
-                                Student Visa Pricing
-                            </MenuItem>
-                            <MenuItem sx={{ color: activePage === "Business Pricing" ? "#50C878" : "black", textTransform: "none", fontWeight: 600, fontSize: "1.2rem" }}
-                                onClick={() => { setActivePage("Business Pricing"); handleClosePricing(); }}>
-                                Business Visa Pricing
-                            </MenuItem>
-                        </Menu>
-
-                        {/* Case Studies */}
-                        <Button
-                            sx={{ color: activePage === "Case Studies" ? "#50C878" : "black", textTransform: "none" }}
-                            onClick={() => setActivePage("Case Studies")}
-                        >
-                            <Typography component="p" sx={{ fontWeight: 600, fontSize: "1.2rem", textTransform: "none" }}>
-                                Case Studies
-                            </Typography>
-                        </Button>
-
-                        {/* Leads */}
-                        <Button
-                            sx={{ color: anchorElLeads || activePage === "Student Leads" || activePage === "Business Leads" ? "#50C878" : "black", textTransform: "none" }}
-                            onClick={handleOpenLeads}
-                        >
-                            <Typography component="p" sx={{ fontWeight: 600, fontSize: "1.2rem", textTransform: "none" }}>
-                                Leads
-                            </Typography>
-                        </Button>
-                        <Menu anchorEl={anchorElLeads} open={Boolean(anchorElLeads)} onClose={handleCloseLeads}>
-                            <MenuItem sx={{
-                                color: activePage === "Student Leads" ? "#50C878" : "black",
-                                fontWeight: 600,
-                                fontSize: "1.2rem",
-                                textTransform: "none"
-                            }}
-                                onClick={() => { setActivePage("Student Leads"); handleCloseLeads(); }}>
-                                Student Eligibility
-                            </MenuItem>
-                            <MenuItem sx={{
-                                color: activePage === "Business Leads" ? "#50C878" : "black",
-                                textTransform: "none",
-                                fontWeight: 600,
-                                fontSize: "1.2rem"
-                            }}
-                                onClick={() => { setActivePage("Business Leads"); handleCloseLeads(); }}>
-                                Business Eligibility
-                            </MenuItem>
-                        </Menu>
+                                {menu.subMenu && (
+                                    <Menu
+                                        anchorEl={subMenu.anchorEl} // check selected menu button and set submenu
+                                        open={subMenu.menuKey === menu.key}
+                                        onClose={() => dispatch({ type: "CLOSE_MENU" })}
+                                    >
+                                        {menu.subMenu.map(sub => (
+                                            <MenuItem
+                                                key={sub.key}
+                                                sx={{ color: activePage === sub.key ? "#50C878" : "black", fontWeight: 600, fontSize: "1.2rem", textTransform: "none" }}
+                                                // store sub key menu  in store
+                                                onClick={() => { setActivePage(sub.key); dispatch({ type: "CLOSE_MENU" }); }}
+                                            >
+                                                {sub.label}
+                                            </MenuItem>
+                                        ))}
+                                    </Menu>
+                                )}
+                            </Box>
+                        ))}
                     </Box>
+
+                    {/* mobile menu Icon*/}
                     <IconButton sx={{
                         display: { xs: 'block', md: 'none' },
                         position: 'absolute',
@@ -194,9 +130,60 @@ const Header = () => {
                         right: 20,
                         pt: 3
                     }}
+                        onClick={() => { setMobileOpen(true); }}
                     >
                         <MenuIcon fontSize="large" />
                     </IconButton>
+
+                    {/* Mobile View Menu */}
+                    <Drawer
+                        anchor="right"
+                        open={mobileOpen}
+                        onClose={() => { setMobileOpen(false); }}
+                        variant="persistent"
+                    >
+                        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 9, ml: 25 }}>
+                            {/* set menu and sub menu */}
+                            {menus.map(menu => (
+                                <Box key={menu.key}>
+                                    <Button
+                                        // change color if menu button if menu or submenu selected
+                                        sx={{
+                                            color: activePage === menu.key || menu.subMenu?.some(sm => sm.key === activePage) ? "#50C878" : "black",
+                                            textTransform: "none"
+                                        }}
+                                        // if submenu exist then open else set menu 
+                                        onClick={menu.subMenu ? (e) => dispatch({ type: "OPEN_MENU", anchorEl: e.currentTarget, menuKey: menu.key }) : () => setActivePage(menu.key)}
+                                    >
+                                        <Typography sx={{ fontWeight: 600, fontSize: "1.2rem", textTransform: "none" }}>
+                                            {menu.label}
+                                        </Typography>
+                                    </Button>
+
+                                    {menu.subMenu && (
+                                        <Menu
+                                            anchorEl={subMenu.anchorEl} // check selected menu button and set submenu
+                                            open={subMenu.menuKey === menu.key}
+                                            onClose={() => dispatch({ type: "CLOSE_MENU" })}
+                                        >
+                                            {menu.subMenu.map(sub => (
+                                                <MenuItem
+                                                    key={sub.key}
+                                                    sx={{ color: activePage === sub.key ? "#50C878" : "black", fontWeight: 600, fontSize: "1.2rem", textTransform: "none" }}
+                                                    // store sub key menu  in store
+                                                    onClick={() => { setActivePage(sub.key); dispatch({ type: "CLOSE_MENU" }); }}
+                                                >
+                                                    {sub.label}
+                                                </MenuItem>
+                                            ))}
+                                        </Menu>
+                                    )}
+                                </Box>
+                            ))}
+                        </Box>
+                    </Drawer>
+
+
                 </Toolbar>
             </AppBar >
         </>
