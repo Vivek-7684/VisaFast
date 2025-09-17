@@ -6,6 +6,7 @@ import { AppBar, Toolbar, Typography, Menu, MenuItem, IconButton, Drawer } from 
 import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@mui/material/styles';
 import { useState, useReducer } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 import { menus } from '../Static/Menu';
 
 // Reducer for menu state
@@ -130,7 +131,7 @@ const Header = () => {
                         right: 20,
                         pt: 3
                     }}
-                        onClick={() => { setMobileOpen(true); }}
+                        onClick={() => { setMobileOpen(true) }}
                     >
                         <MenuIcon fontSize="large" />
                     </IconButton>
@@ -140,9 +141,17 @@ const Header = () => {
                         anchor="right"
                         open={mobileOpen}
                         onClose={() => { setMobileOpen(false); }}
-                        variant="persistent"
+                        variant="temporary"
+                    // width={200}
                     >
-                        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 9, ml: 25 }}>
+                        <Box sx={{ display: { xs: "flex", md: "none" }, flexDirection: "column", gap: 1, ml: 25, maxWidth: "180px" }} >
+                            <CloseIcon  
+                            onClick={() => { setMobileOpen(false); }}
+                            sx={{
+                                position:'absolute',
+                                left:10,
+                                top:10
+                            }}/>
                             {/* set menu and sub menu */}
                             {menus.map(menu => (
                                 <Box key={menu.key}>

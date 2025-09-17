@@ -2,11 +2,11 @@ export const menus = [
   { label: "Home", key: "Home" },
   { label: "About Us", key: "About" },
   {
-    label: "Visa",
-    key: "Visa",
+    label: "Visas",
+    key: "Visas",
     subMenu: [
-      { label: "Student Visa", key: "Student Visa" },
-      { label: "Business Visa", key: "Business Visa" }
+      { label: "Student Visas", key: "Student Visas" },
+      { label: "Business Visas", key: "Business Visas" }
     ]
   },
   {

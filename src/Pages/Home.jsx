@@ -36,7 +36,7 @@ const Home = () => {
             <Box
                 sx={{
                     position: "relative",
-                    top: 0,
+                    top: 14,
                     // mt: 10,
                     left: 0,
                     height: { xs: "400px", md: "600px" },
@@ -131,12 +131,14 @@ const Home = () => {
                     py: 1,
                     color: "white",
                     mx: "auto",
-                    mt: 0,
+                    mt: 1.5,
                     fontSize: 20,
                     bgcolor: theme.pallete.main
                 }}
             >
-                Trust Strip:
+                <Typography sx={{ fontWeight: "bold", color: "white" }}>
+                    Trust Strip:
+                </Typography>
                 {/* Stars */}
                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.2 }}>
                     <StarIcon />
@@ -348,7 +350,7 @@ const Home = () => {
                                 sx={{
                                     ml: 40
                                 }}>
-                                {/* Buisness Form */}
+                                {/* Business Form */}
 
                                 <Grid item
                                     xs={12} md={7}
@@ -462,7 +464,7 @@ const Home = () => {
                 <Typography variant='h3'
                     sx={{
                         p: 7,
-                        fontWeight:"500"
+                        fontWeight: "500"
                     }}>
                     How It Works
                 </Typography>
