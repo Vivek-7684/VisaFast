@@ -153,7 +153,7 @@ const Home = () => {
                     display: "flex",
                     alignContent: { xs: "flex-start", md: "center" },
                     mt: 10,
-                    mb:10,
+                    mb: 10,
                     px: 10,
                     gap: { xs: 1, md: 6.5 },
                     width: {
@@ -265,6 +265,12 @@ const Home = () => {
                                         }}
                                         size="medium"
                                         margin="normal"
+                                        InputLabelProps={{
+                                            sx: {
+                                                fontSize: { xs: "10px", md: "18px" },
+                                                fontWeight: "600"
+                                            }
+                                        }}
                                         required
                                     >
                                         {
@@ -291,9 +297,12 @@ const Home = () => {
                                         }}
                                         size="medium"
                                         margin="normal"
-                                        // InputProps={{
-                                        //     sx: { color: theme.palette.main }
-                                        // }}
+                                        InputLabelProps={{
+                                            sx: {
+                                                fontSize: { xs: "10px", md: "18px" },
+                                                fontWeight: "600"
+                                            }
+                                        }}
                                         required
                                     >
                                         <MenuItem key="Yes" value="Yes">Yes</MenuItem>
@@ -315,9 +324,12 @@ const Home = () => {
                                         }}
                                         size="medium"
                                         margin="normal"
-                                        // InputProps={{
-                                        //     sx: { color: theme.palette.main }
-                                        // }}
+                                        InputLabelProps={{
+                                            sx: {
+                                                fontSize: { xs: "10px", md: "18px" },
+                                                fontWeight: "600"
+                                            }
+                                        }}
                                         required
                                     >
 
@@ -348,6 +360,12 @@ const Home = () => {
                                         }}
                                         size="medium"
                                         margin="normal"
+                                        InputLabelProps={{
+                                            sx: {
+                                                fontSize: { xs: "10px", md: "18px" },
+                                                fontWeight: "600"
+                                            }
+                                        }}
                                         required
                                     >
 
@@ -368,9 +386,12 @@ const Home = () => {
                                         }}
                                         size="medium"
                                         margin="normal"
-                                        // InputProps={{
-                                        //     sx: { color: theme.palette.main }
-                                        // }}
+                                        InputLabelProps={{
+                                            sx: {
+                                                fontSize: { xs: "10px", md: "18px" },
+                                                fontWeight: "600"
+                                            }
+                                        }}
                                         required
                                     >
 
@@ -391,6 +412,12 @@ const Home = () => {
                                         }}
                                         size="medium"
                                         margin="normal"
+                                        InputLabelProps={{
+                                            sx: {
+                                                fontSize: { xs: "10px", md: "18px" },
+                                                fontWeight: "600"
+                                            }
+                                        }}
                                         required
                                     >
 
@@ -404,7 +431,7 @@ const Home = () => {
                                 px: 5,
                                 py: 1.7,
                                 mt: 5,
-                                ml:selected === 'Business'? 40 :5,
+                                ml: selected === 'Business' ? 40 : 5,
                                 bgcolor: theme.pallete.main
                             }}
                         >
@@ -416,10 +443,7 @@ const Home = () => {
 
                         </Button>
                     </Box>
-
-
                 </Box>
-
             </Box >
 
         </>
