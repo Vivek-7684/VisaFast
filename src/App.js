@@ -6,7 +6,7 @@ import './Styles/global.css';
 const theme = createTheme({
   pallete: {
     main: "#06BBCC",
-    light: "F0FBFC"
+    light: "#F0FBFC"
   },
   typography: {
     h1: { fontFamily: "Charis SIL, serif" },

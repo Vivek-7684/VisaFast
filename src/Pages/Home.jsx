@@ -1,4 +1,9 @@
-import { AppBar, Toolbar, Typography, Menu, MenuItem, TextField, FormControl, Select, InputLabel, ToggleButtonGroup, ToggleButton, Grid } from '@mui/material';
+import {
+    AppBar, Toolbar, Typography,
+    Menu, MenuItem, TextField, FormControl, Select,
+    InputLabel, ToggleButtonGroup, ToggleButton,
+    Grid, Card, CardMedia, CardHeader
+} from '@mui/material';
 import Box from '@mui/material/Box';
 import StarIcon from "@mui/icons-material/Star";
 import { useTheme } from '@mui/material/styles';
@@ -6,8 +11,10 @@ import StarHalfIcon from "@mui/icons-material/StarHalf";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { useState } from 'react';
-import { Balance } from '@mui/icons-material';
 import { grey } from '@mui/material/colors';
+import ChecklistIcon from '@mui/icons-material/Checklist';
+import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 
 const Home = () => {
 
@@ -172,7 +179,6 @@ const Home = () => {
                         height: { xs: "400px", md: "600px" },
                         width: "auto",
                     }}
-
                 >
                 </Box>
 
@@ -446,6 +452,104 @@ const Home = () => {
                 </Box>
             </Box >
 
+            {/* How it Works */}
+            <Box
+                sx={{
+                    width: "100%",
+                    height: "auto",
+                    bgcolor: theme.pallete.light,
+                    position: "relative",
+                }}
+            >
+                {/* <Typography variant='h3'
+                    sx={{
+                        p: 10
+                    }}>
+                    How It Works
+                </Typography> */}
+
+                <Box
+                    component='img'
+                    src={'./HowItWorks.png'}
+                    sx={{
+                        height: { xs: "400px", md: "600px" },
+                        width: "auto",
+                        position: "absolute",
+                        top: 0,
+                        right: 0
+                    }}
+                >
+
+                </Box>
+
+                <Card
+                    width="50"
+                    height="50">
+                    <CardMedia
+                        component="img"
+                        src={'./evaluation.png'}
+                        sx={{
+                            height: "50px",
+                            width: "fit-content",
+                            bgcolor: "rgba(6, 187, 204, 0.5)",
+                            borderRadius: 10
+                        }}
+                    >
+                    </CardMedia>
+                    <CardHeader title=" Free Profile
+                            Evaluation">
+                    </CardHeader>
+                </Card>
+
+                <Card>
+                    <CardMedia
+                        component="img"
+                        src={'./checklist.png'}
+                        sx={{
+                            height: "50px",
+                            width: "auto",
+                            bgcolor: "rgba(6, 187, 204, 0.5)"
+                        }}
+                    >
+                    </CardMedia>
+                    <CardHeader title=" Checklist &
+                            Document Prep">
+                    </CardHeader>
+                </Card>
+
+
+                <Card>
+                    <CardMedia>
+                        <FingerprintIcon />
+                    </CardMedia>
+                    <CardHeader title=" Submission & Biometrics">
+                    </CardHeader>
+                </Card>
+
+                <Card>
+                    <CardMedia
+                        component="img"
+                        src={'./decision-making.png'}
+                        sx={{
+                            height: "50px",
+                            width: "auto",
+                            bgcolor: "rgba(6, 187, 204, 0.5)"
+                        }}
+                    >
+                    </CardMedia>
+                    <CardHeader title="Decision">
+                    </CardHeader>
+                </Card>
+
+                <Card>
+                    <CardMedia>
+                        <FlightTakeoffIcon fontColor="blue" />
+                    </CardMedia>
+                    <CardHeader title="Pre‑departure support">
+                    </CardHeader>
+                </Card>
+
+            </Box>
         </>
     )
 }
