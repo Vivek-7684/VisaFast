@@ -2,7 +2,7 @@ import {
     AppBar, Toolbar, Typography,
     Menu, MenuItem, TextField, FormControl, Select,
     InputLabel, ToggleButtonGroup, ToggleButton,
-    Grid, Card, CardMedia, CardHeader
+    Grid, Card, CardMedia, CardHeader, CardContent, Avatar
 } from '@mui/material';
 import Box from '@mui/material/Box';
 import StarIcon from "@mui/icons-material/Star";
@@ -27,8 +27,6 @@ const Home = () => {
     const handleClick = (event, newValue) => {
         setSelected(newValue);
     }
-
-    console.log(selected);
 
     const countries = ["USA", "Canada", "UK", "Australia", "Germany", "Schengen", "Singapore", "UAE"];
 
@@ -461,12 +459,13 @@ const Home = () => {
                     position: "relative",
                 }}
             >
-                {/* <Typography variant='h3'
+                <Typography variant='h3'
                     sx={{
-                        p: 10
+                        p: 7,
+                        fontWeight:"500"
                     }}>
                     How It Works
-                </Typography> */}
+                </Typography>
 
                 <Box
                     component='img'
@@ -483,50 +482,69 @@ const Home = () => {
                 </Box>
 
                 <Card
-                    width="50"
-                    height="50">
-                    <CardMedia
-                        component="img"
-                        src={'./evaluation.png'}
-                        sx={{
-                            height: "50px",
-                            width: "fit-content",
-                            bgcolor: "rgba(6, 187, 204, 0.5)",
-                            borderRadius: 10
-                        }}
+                    variant="outlined"
+                    sx={{
+                        maxWidth: "fit-content"
+                    }}>
+                    <CardHeader
+                        title="Free Profile Evaluation"
+                        avatar={<Avatar src="./evaluation.png"
+                            sx={{
+                                height: 50,
+                                width: "fit-content",
+                                bgcolor: "rgba(6, 187, 204, 0.5)",
+                                borderRadius: 10
+                            }} />}
                     >
-                    </CardMedia>
-                    <CardHeader title=" Free Profile
-                            Evaluation">
                     </CardHeader>
                 </Card>
 
-                <Card>
-                    <CardMedia
-                        component="img"
-                        src={'./checklist.png'}
-                        sx={{
-                            height: "50px",
-                            width: "auto",
-                            bgcolor: "rgba(6, 187, 204, 0.5)"
-                        }}
+                <Card
+                    variant="outlined"
+                    sx={{
+                        maxWidth: "fit-content"
+                    }}
+                >
+                    <CardHeader
+                        title=" Checklist & Document Prep"
+
+                        avatar={<Avatar src="./checklist.png"
+                            sx={{
+                                height: 50,
+                                width: "fit-content",
+                                bgcolor: "rgba(6, 187, 204, 0.5)",
+                                borderRadius: 10
+                            }} />}
                     >
-                    </CardMedia>
-                    <CardHeader title=" Checklist &
-                            Document Prep">
                     </CardHeader>
                 </Card>
 
 
-                <Card>
-                    <CardMedia>
-                        <FingerprintIcon />
-                    </CardMedia>
-                    <CardHeader title=" Submission & Biometrics">
+                <Card
+                    variant="outlined"
+                    sx={{
+                        maxWidth: "fit-content"
+                    }}
+                >
+                    <CardHeader
+                        title=" Submission & Biometrics"
+                        avatar={<Avatar
+                            sx={{
+                                height: 50,
+                                width: "fit-content",
+                                bgcolor: "rgba(6, 187, 204, 0.5)",
+                                borderRadius: 10
+                            }}><FingerprintIcon /></Avatar>}
+                    >
                     </CardHeader>
                 </Card>
 
-                <Card>
+                <Card
+                    variant="outlined"
+                    sx={{
+                        maxWidth: "fit-content"
+                    }}
+                >
                     <CardMedia
                         component="img"
                         src={'./decision-making.png'}
@@ -541,11 +559,25 @@ const Home = () => {
                     </CardHeader>
                 </Card>
 
-                <Card>
-                    <CardMedia>
-                        <FlightTakeoffIcon fontColor="blue" />
-                    </CardMedia>
-                    <CardHeader title="Pre‑departure support">
+                <Card
+                    variant="outlined"
+                    sx={{
+                        maxWidth: "fit-content"
+                    }}
+                >
+
+                    <CardHeader
+                        title="Pre‑departure support"
+                        avatar={<Avatar
+                            sx={{
+                                height: 50,
+                                width: "fit-content",
+                                bgcolor: "rgba(6, 187, 204, 0.5)",
+                                borderRadius: 10
+                            }} >
+                            <FlightTakeoffIcon fontColor="blue" />
+                        </Avatar>}
+                    >
                     </CardHeader>
                 </Card>
 
