@@ -40,37 +40,35 @@ const Home = () => {
                     },
                 }}
             >
-                <Box sx={{ position: "relative", zIndex: 1, px: 2 }}>
+                <Box sx={{ position: "relative", zIndex: 1, px: 1 }}>
                     <Typography
-                        variant="h3"
-                        sx={{ fontWeight: "bold", mb: 2, fontStyle: "italic" }}
+                        variant="h4"
+                        sx={{ fontWeight: "bold", mb: 2, fontSize: "50px" }}
                     >
-                        “Study or Travel for”
+                        “Study or Travel for
                     </Typography>
                     <Typography
-                        variant="h3"
-                        sx={{ fontWeight: "bold", mb: 2, fontStyle: "italic" }}
+                        variant="h4"
+                        sx={{ fontWeight: "bold", mb: 2, fontSize: "50px" }}
                     >
                         Business — We Make Your Visa File Strong.
                     </Typography>
                     <Typography
-                        variant="h3"
-                        sx={{ fontWeight: "bold", mb: 2, fontStyle: "italic" }}
+                        variant="h4"
+                        sx={{ fontWeight: "bold", mb: 2, fontSize: "50px" }}
                     >
                         Visa File Strong.”
                     </Typography>
                     <Typography
-                        variant="h5"
-                        component="p"
-                        sx={{ lineHeight: 1.6, fontStyle: "italic" }}
+                        variant="p"
+                        sx={{ lineHeight: 1.6, fontSize: "20px" }}
                     >
                         “From profile evaluation to documents, appointments, and
                     </Typography>
 
                     <Typography
-                        variant="h5"
-                        component="p"
-                        sx={{ mb: 5, fontStyle: "italic" }}
+                        variant="p"
+                        sx={{ mb: 5, display: "block", fontSize: "20px" }}
                     >
                         mock interviews — all in one place.”
                     </Typography>
@@ -82,17 +80,21 @@ const Home = () => {
                     >
                         <Button
                             variant="contained"
-                            bgcolor="`${theme.pallete.main}`"
-                            sx={{ px: 4, py: 1.5, bgcolor: "`${theme.pallete.main}`" }}
+                            sx={{ px: 5, py: 1.7, bgcolor: theme.pallete.main }}
+
                         >
-                            Get Free Eligibility Check
+                            <Typography component="p" sx={{ fontWeight: "bold" }}>
+                                Get Free Eligibility Check
+                            </Typography>
                         </Button>
 
                         <Button
                             variant="contained"
-                            sx={{ px: 4, py: 1.5, bgcolor: theme.pallete.main }}
+                            sx={{ px: 5, py: 1.7, bgcolor: theme.pallete.main }}
                         >
-                            WhatsApp Now
+                            <Typography component="p" sx={{ fontWeight: "bold" }}>
+                                WhatsApp Now
+                            </Typography>
                         </Button>
                     </Stack>
                 </Box>
@@ -105,10 +107,10 @@ const Home = () => {
                     gap: 1,
                     bgcolor: "#f5f5f5",
                     px: 3,
-                    py: 1.5,
+                    py: 1,
                     color: "white",
                     mx: "auto",
-                    mt: 1.2,
+                    mt: 1.4,
                     fontSize: 20,
                     bgcolor: theme.pallete.main
                 }}

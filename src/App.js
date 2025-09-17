@@ -17,6 +17,7 @@ const theme = createTheme({
     h6: {
       fontFamily: "Charis SIL, serif",
     },
+    span: { fontFamily: "Charis SIL, serif", },
     p: { fontFamily: "figtree, Arial, sans-serif" },
     body1: { fontFamily: "Figtree, Arial, sans-serif" },
     button: {
