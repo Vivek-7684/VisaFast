@@ -17,11 +17,10 @@ const Home = () => {
             <Box
                 sx={{
                     position: "relative",
-                    top: 15,
+                    top: 0,
+                    // mt: 10,
                     left: 0,
-                    // height: { xs: "400px", md: "600px" },
-                    height: "100%",
-                    height: "auto",
+                    height: { xs: "400px", md: "600px" },
                     width: "auto",
                     padding: "5rem",
                     display: "flex",
@@ -39,6 +38,7 @@ const Home = () => {
                         bgcolor: "rgba(0,0,0,0.3)", // Light overlay
                     },
                 }}
+                style={{ display: "block" }}
             >
                 <Box sx={{ position: "relative", zIndex: 1, px: 1 }}>
                     <Typography
@@ -110,7 +110,7 @@ const Home = () => {
                     py: 1,
                     color: "white",
                     mx: "auto",
-                    mt: 1.4,
+                    mt: 0,
                     fontSize: 20,
                     bgcolor: theme.pallete.main
                 }}
@@ -146,7 +146,8 @@ const Home = () => {
                     src: `url('./Group17.png')`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
-                }}>
+                }}
+                    mt={1}>
                 </Box>
                 <Box>
                     <Typography>Quick Eligibility</Typography>
