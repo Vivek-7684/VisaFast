@@ -36,12 +36,12 @@ const Home = () => {
             <Box
                 sx={{
                     position: "relative",
-                    top: 14,
+                    top: 0,
                     // mt: 10,
                     left: 0,
-                    height: { xs: "400px", md: "600px" },
+                    minHeight: { xs: "400px", md: "600px" },
                     width: "auto",
-                    padding: "5rem",
+                    padding: { xs: "2rem", sm: "3rem", md: "5rem" },
                     display: "flex",
                     color: "white",
                     backgroundImage: `url('./Home.png')`,
@@ -62,32 +62,32 @@ const Home = () => {
                 <Box sx={{ position: "relative", zIndex: 1, px: 1 }}>
                     <Typography
                         variant="h4"
-                        sx={{ fontWeight: "bold", mb: 2, fontSize: "50px" }}
+                        sx={{ fontWeight: "bold", mb: 2, fontSize: { xs: "24px", sm: "32px", md: "50px" } }}
                     >
                         “Study or Travel for
                     </Typography>
                     <Typography
                         variant="h4"
-                        sx={{ fontWeight: "bold", mb: 2, fontSize: "50px" }}
+                        sx={{ fontWeight: "bold", mb: 2, fontSize: { xs: "24px", sm: "32px", md: "50px" } }}
                     >
                         Business — We Make Your Visa File Strong.
                     </Typography>
                     <Typography
                         variant="h4"
-                        sx={{ fontWeight: "bold", mb: 2, fontSize: "50px" }}
+                        sx={{ fontWeight: "bold", mb: 2, fontSize: { xs: "24px", sm: "32px", md: "50px" } }}
                     >
                         Visa File Strong.”
                     </Typography>
                     <Typography
                         variant="p"
-                        sx={{ lineHeight: 1.6, fontSize: "20px" }}
+                        sx={{ lineHeight: 1.6, fontSize: { xs: "24px", sm: "32px", md: "50px" } }}
                     >
                         “From profile evaluation to documents, appointments, and
                     </Typography>
 
                     <Typography
                         variant="p"
-                        sx={{ mb: 5, display: "block", fontSize: "20px" }}
+                        sx={{ mb: 5, display: "block", fontSize: { xs: "24px", sm: "32px", md: "50px" } }}
                     >
                         mock interviews — all in one place.”
                     </Typography>
@@ -123,22 +123,24 @@ const Home = () => {
             <Box
                 sx={{
                     display: "flex",
-                    alignContent: "center",
-                    justifyContent: "center",
-                    gap: 1,
-                    bgcolor: "#f5f5f5",
-                    px: 3,
+                    flexDirection: { xs: "column", sm: "row" },
+                    alignItems: { xs: "flex-start", sm: "center" },   // ✅ fix 1
+                    justifyContent: { xs: "flex-start", sm: "center" }, // ✅ fix 2
+                    gap: { xs: 0.5, sm: 1, md: 2 },
+                    bgcolor: theme.pallete.main,
+                    px: { xs: 2, sm: 3, md: 6 },
                     py: 1,
-                    color: "white",
                     mx: "auto",
-                    mt: 1.5,
+                    color: "white",
                     fontSize: 20,
-                    bgcolor: theme.pallete.main
+                    bgcolor: theme.pallete.main,
+                    textAlign: { xs: "left", sm: "center" },           // ✅ fix 3
                 }}
             >
                 <Typography sx={{ fontWeight: "bold", color: "white" }}>
                     Trust Strip:
                 </Typography>
+
                 {/* Stars */}
                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.2 }}>
                     <StarIcon />
@@ -153,6 +155,7 @@ const Home = () => {
                 <Typography>• 2,000+ files prepared</Typography>
                 <Typography>• Offices in [City]</Typography>
             </Box>
+
 
             {/* Eligibility form Section*/}
             <Box

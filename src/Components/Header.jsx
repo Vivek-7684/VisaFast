@@ -71,7 +71,7 @@ const Header = () => {
             </Box>
 
             {/* Header Section */}
-            <AppBar position="sticky" sx={{ mt: 2, bgcolor: "white", pt: 0.8 }} elevation={0}>
+            <AppBar position="sticky" sx={{ mt: 1.4, bgcolor: "white", pt: 0.8, mb: 1.4 }} elevation={0}>
                 <Toolbar sx={{ display: "flex" }}>
                     {/* Logo */}
                     <Box
@@ -145,13 +145,13 @@ const Header = () => {
                     // width={200}
                     >
                         <Box sx={{ display: { xs: "flex", md: "none" }, flexDirection: "column", gap: 1, ml: 25, maxWidth: "180px" }} >
-                            <CloseIcon  
-                            onClick={() => { setMobileOpen(false); }}
-                            sx={{
-                                position:'absolute',
-                                left:10,
-                                top:10
-                            }}/>
+                            <CloseIcon
+                                onClick={() => { setMobileOpen(false); }}
+                                sx={{
+                                    position: 'absolute',
+                                    left: 10,
+                                    top: 10
+                                }} />
                             {/* set menu and sub menu */}
                             {menus.map(menu => (
                                 <Box key={menu.key}>
