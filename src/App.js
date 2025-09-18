@@ -34,7 +34,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <Header />
-        {/* <Home /> */}
+        <Home />
       </ThemeProvider>
     </>
   );
