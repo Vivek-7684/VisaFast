@@ -129,7 +129,7 @@ const Header = () => {
                         position: 'absolute',
                         top: 0,
                         right: 20,
-                        pt: 3
+                        pt: 2
                     }}
                         onClick={() => { setMobileOpen(true) }}
                     >
@@ -142,14 +142,15 @@ const Header = () => {
                         open={mobileOpen}
                         onClose={() => { setMobileOpen(false); }}
                         variant="temporary"
+                        height={100}
                     // width={200}
                     >
-                        <Box sx={{ display: { xs: "flex", md: "none" }, flexDirection: "column", gap: 1, ml: 25, maxWidth: "180px" }} >
+                        <Box sx={{ display: { xs: "flex", md: "none" }, flexDirection: "column", gap: 3, mt: 5, ml: 15, mr: 10, maxWidth: "180px" }} >
                             <CloseIcon
                                 onClick={() => { setMobileOpen(false); }}
                                 sx={{
                                     position: 'absolute',
-                                    left: 10,
+                                    left: 20,
                                     top: 10
                                 }} />
                             {/* set menu and sub menu */}

@@ -471,7 +471,7 @@ const Home = () => {
                     }}>
                     How It Works
                 </Typography>
-
+                
                 <Box
                     component='img'
                     src={'./HowItWorks.png'}
@@ -482,6 +482,9 @@ const Home = () => {
                         top: 0,
                         right: 0
                     }}
+                    p={1}
+                    mr={10}
+                    mb={5}
                 >
 
                 </Box>
